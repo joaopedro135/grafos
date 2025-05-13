@@ -59,10 +59,11 @@ int verificaVerticesAdjacentes (Grafo *g, int origem1, int destino1);
 int verificaArestasAdjacentes (Grafo *g, int origem1, int destino1, int origem2, int destino2);
 
 // Duas arestas são paralelas se existem duas arestas entre os mesmos vértices
+// Verificação para grafos orientados, nos quais não são inicializados os dois sentidos
 int verificaArestasParalelasOrientado (Grafo *g, int origem1, int destino1);
 
 // Laços são arestas que ligam um vértice a ele mesmo
-int verificaLacos (Grafo *g);
+int verificaQuantidadeLacos (Grafo *g);
 
 // O grau de um vértice é o número de arestas que incidem sobre ele
 void grauVertices (Grafo *g, int grauVertices[]);
@@ -75,17 +76,20 @@ void grauVerticesOrientado (Grafo *g, int grauVerticesEntrada[], int grauVertice
 int verificaGrafoCompleto (Grafo *g);
 
 // Um subgrafo é induzido se contém todos os vértices do grafo original e todas as arestas que ligam esses vértices
-void verificarSubgraficoInduzido ();
+void verificarSubgraficoInduzido (Grafo *g, int numVerticesSubgrafico, int verticesSubgrafico[]);
 
 // dfs (Depth First Search)
 // Percorre o grafo a partir de um vértice, marcando os vértices visitados
 void dfs (Grafo *g, int vertice, int verticesVisitados[]);
 
+// O grafo invertido é um grafo orientado onde todas as arestas são invertidas
+Grafo inverterGrafoOrientado (Grafo *g);
+
 // O fecho transitivo direto de um vértice é o conjunto de vértices que podem ser alcançados a partir dele
 // através de um caminho de arestas orientadas
-void fechoTransitivoDireto ();
+int* fechoTransitivoDireto (Grafo *g, int vertice);
 
 // O fecho transitivo inverso de um vértice é o conjunto de vértices que podem alcançar o vértice
 // através de um caminho de arestas orientadas
-void fechoTransitivoInverso ();
+int* fechoTransitivoInverso (Grafo *g, int vertice);
 
