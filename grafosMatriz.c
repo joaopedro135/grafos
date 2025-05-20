@@ -39,8 +39,7 @@ void removeAresta(Grafo *g, int origem, int destino){
             g->adjMatrix[destino][origem] = 0;
             g->pesoMatrix[origem][destino] = 0;
             g->pesoMatrix[destino][origem] = 0;
-        }
-        else{
+        } else{
             printf("Erro: vértices não pertence ao grafo.\n");    
         }    
     } else {
